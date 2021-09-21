@@ -4,8 +4,8 @@ window.addEventListener('load', ()=>{
     const clearBtn = document.getElementById('clear-btn');
     const outputDiv = document.getElementById('output');
 
+    visitCount();
     form.addEventListener('submit', handleSubmit);
-
     clearBtn.addEventListener('click', handleClear);
 
     function handleClear(){
@@ -23,5 +23,11 @@ window.addEventListener('load', ()=>{
             return str;
         });
         outputDiv.innerHTML = `VALUES <br/> ${output.join('')}`;
+    }
+
+    function visitCount(){
+        fetch('https://api.countapi.xyz/update/doonamm/convert-data-visit-count?amount=1')
+            .then(res => res.json())
+            .then(res => console.log(res.value));
     }
 });

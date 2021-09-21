@@ -15,11 +15,9 @@ window.addEventListener('load', ()=>{
     function handleSubmit(e){
         e.preventDefault();
         const list = text.value.trim().split('\n').map(o => o.split('\t'));
-        console.log(list);
         const lastIndex = list.length - 1;
         const output = list.map((item, index) => {
             const str = item.reduce((prev, curr, i)=> (prev + `\'${curr}\'` + (i !== item.length - 1 ? ', ' : '')), '(') + ')' + (index !== lastIndex ? ',<br/>' : '');
-            console.log(str);
             return str;
         });
         outputDiv.innerHTML = `VALUES <br/> ${output.join('')}`;

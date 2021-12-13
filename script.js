@@ -55,7 +55,10 @@ window.addEventListener('load', ()=>{
     }
 
     function isMoney(value){
-        return /^[0-9]|\.$/g.test(value);
+        if(/^[0-9]|\.$/g.test(value) && /\./g.test(value)){
+            return true;
+        }
+        return false;
     }
 });
 
